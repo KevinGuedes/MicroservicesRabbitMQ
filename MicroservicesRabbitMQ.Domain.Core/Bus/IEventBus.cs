@@ -10,6 +10,8 @@ namespace MicroservicesRabbitMQ.Domain.Core.Bus
 
         void Publish<TEvent>(TEvent @event) where TEvent : Event;
 
-        void Subscribe<TEvent, THandler>() where TEvent : Event where THandler : IEventHandler<TEvent>;
+        void Subscribe<TEvent, THandler>() 
+            where TEvent : Event 
+            where THandler : IEventHandler<TEvent>;
     }
 }
