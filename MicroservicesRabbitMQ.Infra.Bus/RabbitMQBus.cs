@@ -88,13 +88,13 @@ namespace MicroservicesRabbitMQ.Infra.Bus
 
                 var consumer = new AsyncEventingBasicConsumer(channel);
 
-                consumer.Received += Consumer_Received;
+                consumer.Received += ConsumerReceived;
 
                 channel.BasicConsume(eventName, true, consumer);
             }
         }
 
-        private async Task Consumer_Received(object sender, BasicDeliverEventArgs eventArgs)
+        private async Task ConsumerReceived(object sender, BasicDeliverEventArgs eventArgs)
         {
             var eventName = eventArgs.RoutingKey;
             var message = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
