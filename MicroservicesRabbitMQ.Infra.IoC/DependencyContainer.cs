@@ -1,5 +1,6 @@
 ﻿using MicroservicesRabbitMQ.Banking.Application.Interfaces;
 using MicroservicesRabbitMQ.Banking.Application.Services;
+using MicroservicesRabbitMQ.Banking.Data.Context;
 using MicroservicesRabbitMQ.Banking.Data.Repositories;
 using MicroservicesRabbitMQ.Banking.Domain.Interfaces;
 using MicroservicesRabbitMQ.Domain.Core.Bus;
@@ -19,7 +20,8 @@ namespace MicroservicesRabbitMQ.Infra.IoC
             services.AddTransient<IAccountService, AccountService>();
 
             //Data
-            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddTransient<BankingDbContext>();
         }
     }
 }
