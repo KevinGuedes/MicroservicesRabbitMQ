@@ -1,11 +1,10 @@
-﻿using MicroservicesRabbitMQ.Domain.Core.Bus;
+﻿using MicroservicesRabbitMQ.Banking.Application.Interfaces;
+using MicroservicesRabbitMQ.Banking.Application.Services;
+using MicroservicesRabbitMQ.Banking.Data.Repositories;
+using MicroservicesRabbitMQ.Banking.Domain.Interfaces;
+using MicroservicesRabbitMQ.Domain.Core.Bus;
 using MicroservicesRabbitMQ.Infra.Bus;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MicroservicesRabbitMQ.Infra.IoC
 {
@@ -13,7 +12,14 @@ namespace MicroservicesRabbitMQ.Infra.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+            //Domai Bus
             services.AddTransient<IEventBus, RabbitMQBus>();
+
+            //Application Services
+            services.AddTransient<IAccountService, AccountService>();
+
+            //Data
+            services.AddScoped<IAccountRepository, AccountRepository>();
         }
     }
 }

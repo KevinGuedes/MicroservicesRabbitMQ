@@ -15,6 +15,5 @@ namespace MicroservicesRabbitMQ.Banking.Data.Context
         }
 
         public DbSet<Account> Accounts { get; set; }
-
     }
 }
