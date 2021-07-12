@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 
 namespace MicroservicesRabbitMQ.Banking.Api
 {
@@ -38,6 +39,9 @@ namespace MicroservicesRabbitMQ.Banking.Api
             );
 
             services.AddControllers();
+
+            services.AddMediatR(typeof(Startup));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicroservicesRabbitMQ.Banking.Api", Version = "v1" });
@@ -56,7 +60,7 @@ namespace MicroservicesRabbitMQ.Banking.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MicroservicesRabbitMQ.Banking.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Banking Microservice v1"));
             }
 
             app.UseHttpsRedirection();

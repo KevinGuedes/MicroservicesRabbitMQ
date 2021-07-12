@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MicroservicesRabbitMQ.Banking.Application\MicroservicesRabbitMQ.Banking.Application.csproj" />
     <ProjectReference Include="..\MicroservicesRabbitMQ.Banking.Data\MicroservicesRabbitMQ.Banking.Data.csproj" />
     <ProjectReference Include="..\MicroservicesRabbitMQ.Domain.Core\MicroservicesRabbitMQ.Domain.Core.csproj" />

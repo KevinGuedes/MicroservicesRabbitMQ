@@ -17,7 +17,6 @@ namespace MicroservicesRabbitMQ.Infra.IoC
         {
             //Domai Bus
             services.AddTransient<IEventBus, RabbitMQBus>();
-            services.AddMediatR(AppDomain.CurrentDomain.Load("MicroservicesRabbitMQ.Infra.Bus"));
 
             //Application Services
             services.AddTransient<IAccountService, AccountService>();
