@@ -1,4 +1,5 @@
 ﻿using MicroservicesRabbitMQ.Banking.Application.Interfaces;
+using MicroservicesRabbitMQ.Banking.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,6 +15,7 @@ namespace MicroservicesRabbitMQ.Banking.Api.Controllers
     {
         private readonly ILogger<BankingController> _logger;
         private readonly IAccountService _accountService;
+        private static readonly string service = "Banking";
 
         public BankingController(ILogger<BankingController> logger, IAccountService accountService)
         {
@@ -24,8 +26,16 @@ namespace MicroservicesRabbitMQ.Banking.Api.Controllers
         [HttpGet("accounts")]
         public IActionResult GetAccounts()
         {
-            _logger.LogInformation("Get Account endpoint accessed");
+            _logger.LogInformation($"[{service}] Get Accounts method accessed");
             return Ok(_accountService.GetAccounts());
+        }
+
+        [HttpPost("transfer")]
+        public IActionResult Transfer([FromBody] Transfer transfer)
+        {
+            _logger.LogInformation($"[{service}] Transfer method accessed");
+            _accountService.Transfer(transfer);
+            return Ok();
         }
     }
 }

@@ -8,6 +8,8 @@ using MicroservicesRabbitMQ.Infra.Bus;
 using Microsoft.Extensions.DependencyInjection;
 using MediatR;
 using System;
+using MicroservicesRabbitMQ.Banking.Domain.CommandHandlers;
+using MicroservicesRabbitMQ.Banking.Domain.Commands;
 
 namespace MicroservicesRabbitMQ.Infra.IoC
 {
@@ -15,8 +17,11 @@ namespace MicroservicesRabbitMQ.Infra.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            //Domai Bus
+            //Domain Bus
             services.AddTransient<IEventBus, RabbitMQBus>();
+
+            //Domain Banking Command
+            services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, CreateTransferCommandHandler>();
 
             //Application Services
             services.AddTransient<IAccountService, AccountService>();
