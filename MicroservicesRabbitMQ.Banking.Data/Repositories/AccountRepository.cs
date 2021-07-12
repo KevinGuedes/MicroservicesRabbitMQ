@@ -1,11 +1,7 @@
 ﻿using MicroservicesRabbitMQ.Banking.Data.Context;
 using MicroservicesRabbitMQ.Banking.Domain.Interfaces;
 using MicroservicesRabbitMQ.Banking.Domain.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MicroservicesRabbitMQ.Banking.Data.Repositories
 {
