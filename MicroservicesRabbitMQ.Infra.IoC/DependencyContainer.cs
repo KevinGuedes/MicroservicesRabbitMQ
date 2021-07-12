@@ -6,6 +6,8 @@ using MicroservicesRabbitMQ.Banking.Domain.Interfaces;
 using MicroservicesRabbitMQ.Domain.Core.Bus;
 using MicroservicesRabbitMQ.Infra.Bus;
 using Microsoft.Extensions.DependencyInjection;
+using MediatR;
+using System;
 
 namespace MicroservicesRabbitMQ.Infra.IoC
 {
@@ -15,6 +17,7 @@ namespace MicroservicesRabbitMQ.Infra.IoC
         {
             //Domai Bus
             services.AddTransient<IEventBus, RabbitMQBus>();
+            services.AddMediatR(AppDomain.CurrentDomain.Load("MicroservicesRabbitMQ.Infra.Bus"));
 
             //Application Services
             services.AddTransient<IAccountService, AccountService>();
