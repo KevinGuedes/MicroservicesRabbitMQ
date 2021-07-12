@@ -67,7 +67,6 @@ namespace MicroservicesRabbitMQ.Infra.Bus
 
             _handlers[eventName].Add(handlerType);
 
-
             StartBasicConsume<TEvent>();
         }
 
@@ -125,7 +124,7 @@ namespace MicroservicesRabbitMQ.Infra.Bus
 
                     var concreteType = typeof(IEventHandler<>).MakeGenericType(eventType);
 
-                    await (Task)concreteType.GetMethod("Handler").Invoke(handler, new object[] { @event });
+                    await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { @event });
                 }
             }
         }
