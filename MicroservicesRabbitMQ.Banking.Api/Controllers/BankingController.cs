@@ -30,6 +30,13 @@ namespace MicroservicesRabbitMQ.Banking.Api.Controllers
             return Ok(_accountService.GetAccounts());
         }
 
+        [HttpGet("accounts/{id:int}")]
+        public IActionResult GetAccountById([FromRoute] int id)
+        {
+            _logger.LogInformation($"[{service}] Get Account By Id method accessed");
+            return Ok(_accountService.GetAccountById(id));
+        }
+
         [HttpPost("transfer")]
         public IActionResult Transfer([FromBody] Transfer transfer)
         {

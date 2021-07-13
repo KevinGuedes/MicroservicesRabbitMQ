@@ -8,6 +8,8 @@ namespace MicroservicesRabbitMQ.Banking.Application.Interfaces
     {
         IEnumerable<Account> GetAccounts();
 
+        Account GetAccountById(int id);
+
         void Transfer(Transfer transfer);
     }
 }

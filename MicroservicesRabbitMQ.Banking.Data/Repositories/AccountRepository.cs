@@ -18,5 +18,10 @@ namespace MicroservicesRabbitMQ.Banking.Data.Repositories
         {
             return _bankingDbContext.Accounts;
         }
+
+        public Account GetAccountById(int id)
+        {
+            return _bankingDbContext.Accounts.Find(id);
+        }
     }
 }

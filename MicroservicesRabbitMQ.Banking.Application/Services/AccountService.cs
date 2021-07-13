@@ -19,6 +19,11 @@ namespace MicroservicesRabbitMQ.Banking.Application.Services
             _eventBus = eventBus;
         }
 
+        public Account GetAccountById(int id)
+        {
+            return _accountRepository.GetAccountById(id);
+        }
+
         public IEnumerable<Account> GetAccounts()
         {
             return _accountRepository.GetAccounts();
