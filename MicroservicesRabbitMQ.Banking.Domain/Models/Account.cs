@@ -1,4 +1,6 @@
-﻿namespace MicroservicesRabbitMQ.Banking.Domain.Models
+﻿using MicroservicesRabbitMQ.Domain.Core.Entities;
+
+namespace MicroservicesRabbitMQ.Banking.Domain.Models
 {
     public class Account : Base
     {

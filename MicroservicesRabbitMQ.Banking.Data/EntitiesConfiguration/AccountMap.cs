@@ -5,7 +5,7 @@ namespace MicroservicesRabbitMQ.Banking.Data.EntitiesConfiguration
 {
     public class AccountMap : BaseMap<Account>
     {
-        public AccountMap() : base("Account")
+        public AccountMap() : base("Accounts")
         {
         }
 

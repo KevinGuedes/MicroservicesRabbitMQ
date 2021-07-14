@@ -1,4 +1,4 @@
-﻿using MicroservicesRabbitMQ.Banking.Domain.Models;
+﻿using MicroservicesRabbitMQ.Domain.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
