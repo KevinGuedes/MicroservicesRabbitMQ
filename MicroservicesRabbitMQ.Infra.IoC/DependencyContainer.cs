@@ -10,6 +10,7 @@ using MediatR;
 using System;
 using MicroservicesRabbitMQ.Banking.Domain.CommandHandlers;
 using MicroservicesRabbitMQ.Banking.Domain.Commands;
+using MicroserviceRabbitMQ.Transfers.Data.Context;
 
 namespace MicroservicesRabbitMQ.Infra.IoC
 {
@@ -19,16 +20,6 @@ namespace MicroservicesRabbitMQ.Infra.IoC
         {
             //Domain Bus
             services.AddTransient<IEventBus, RabbitMQBus>();
-
-            //Domain Banking Command
-            services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, CreateTransferCommandHandler>();
-
-            //Application Services
-            services.AddTransient<IAccountService, AccountService>();
-
-            //Data
-            services.AddTransient<IAccountRepository, AccountRepository>();
-            services.AddTransient<BankingDbContext>();
         }
     }
 }

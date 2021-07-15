@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MicroservicesRabbitMQ.Banking.IoC\MicroservicesRabbitMQ.Banking.IoC.csproj" />
+    <ProjectReference Include="..\MicroserviceRabbitMQ.Transfer.IoC\MicroserviceRabbitMQ.Transfer.IoC.csproj" />
     <ProjectReference Include="..\MicroservicesRabbitMQ.Infra.IoC\MicroservicesRabbitMQ.Infra.IoC.csproj" />
   </ItemGroup>
 

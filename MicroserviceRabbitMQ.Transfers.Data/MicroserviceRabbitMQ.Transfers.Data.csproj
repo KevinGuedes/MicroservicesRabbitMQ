@@ -7,7 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.8">
-      <PrivateAssets>none</PrivateAssets>
+      <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.8" />
@@ -18,7 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MicroservicesRabbitMQ.Banking.Domain\MicroservicesRabbitMQ.Banking.Domain.csproj" />
+    <Folder Include="EntitiesConfiguration\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MicroserviceRabbitMQ.Transfers.Domain\MicroserviceRabbitMQ.Transfers.Domain.csproj" />
   </ItemGroup>
 
 </Project>
