@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MicroserviceRabbitMQ.Transfers.Data\MicroserviceRabbitMQ.Transfers.Data.csproj" />
-    <ProjectReference Include="..\MicroservicesRabbitMQ.Banking.Application\MicroservicesRabbitMQ.Banking.Application.csproj" />
-    <ProjectReference Include="..\MicroservicesRabbitMQ.Banking.Data\MicroservicesRabbitMQ.Banking.Data.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MicroservicesRabbitMQ.Domain.Core\MicroservicesRabbitMQ.Domain.Core.csproj" />
-    <ProjectReference Include="..\MicroservicesRabbitMQ.Infra.Bus\MicroservicesRabbitMQ.Infra.Bus.csproj" />
   </ItemGroup>
 
 </Project>

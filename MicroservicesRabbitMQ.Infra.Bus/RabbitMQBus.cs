@@ -102,7 +102,7 @@ namespace MicroservicesRabbitMQ.Infra.Bus
             {
                 await ProcessEvent(eventName, message).ConfigureAwait(false);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
             }
         }
@@ -112,7 +112,7 @@ namespace MicroservicesRabbitMQ.Infra.Bus
             if (_handlers.ContainsKey(eventName))
             {
                 var subscriptions = _handlers[eventName];
-                foreach(var subscription in subscriptions)
+                foreach (var subscription in subscriptions)
                 {
                     var handler = Activator.CreateInstance(subscription);
 
