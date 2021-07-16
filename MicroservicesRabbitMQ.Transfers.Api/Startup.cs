@@ -33,7 +33,7 @@ namespace MicroservicesRabbitMQ.Transfers.Api
 
             services.AddControllers();
 
-            services.AddMediatR(typeof(Startup));
+            //services.AddMediatR(typeof(Startup));
 
             services.AddSwaggerGen(c =>
             {

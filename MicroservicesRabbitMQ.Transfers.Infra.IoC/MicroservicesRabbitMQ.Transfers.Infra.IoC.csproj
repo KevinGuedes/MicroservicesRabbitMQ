@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MicroservicesRabbitMQ.Transfers.Application\MicroservicesRabbitMQ.Transfers.Application.csproj" />
     <ProjectReference Include="..\MicroservicesRabbitMQ.Transfers.Infra.Data\MicroservicesRabbitMQ.Transfers.Infra.Data.csproj" />
   </ItemGroup>
 

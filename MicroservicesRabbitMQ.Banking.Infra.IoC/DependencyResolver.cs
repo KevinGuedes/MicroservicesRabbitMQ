@@ -7,6 +7,7 @@ using MicroservicesRabbitMQ.Banking.Domain.Interfaces;
 using MicroservicesRabbitMQ.Banking.Infra.Data.Context;
 using MicroservicesRabbitMQ.Banking.Infra.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace MicroservicesRabbitMQ.Banking.Infra.IoC
 {
@@ -14,6 +15,8 @@ namespace MicroservicesRabbitMQ.Banking.Infra.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+            services.AddMediatR(AppDomain.CurrentDomain.Load("MicroservicesRabbitMQ.Banking.Application"));
+
             services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, CreateTransferCommandHandler>();
 
             services.AddTransient<IAccountService, AccountService>();

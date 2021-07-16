@@ -33,7 +33,7 @@ namespace MicroservicesRabbitMQ.Banking.Api
 
             services.AddControllers();
 
-            services.AddMediatR(typeof(Startup));
+            //services.AddMediatR(typeof(Startup)); if something goes wrong, back to this code
 
             services.AddSwaggerGen(c =>
             {
