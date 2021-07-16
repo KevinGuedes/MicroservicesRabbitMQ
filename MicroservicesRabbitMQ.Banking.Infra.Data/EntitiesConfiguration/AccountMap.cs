@@ -1,7 +1,7 @@
 ﻿using MicroservicesRabbitMQ.Banking.Domain.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MicroservicesRabbitMQ.Banking.Data.EntitiesConfiguration
+namespace MicroservicesRabbitMQ.Banking.Infra.Data.EntitiesConfiguration
 {
     public class AccountMap : BaseMap<Account>
     {

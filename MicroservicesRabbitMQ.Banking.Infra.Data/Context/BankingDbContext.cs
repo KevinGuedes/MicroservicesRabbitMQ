@@ -1,7 +1,7 @@
 ﻿using MicroservicesRabbitMQ.Banking.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MicroservicesRabbitMQ.Banking.Data.Context
+namespace MicroservicesRabbitMQ.Banking.Infra.Data.Context
 {
     public class BankingDbContext : DbContext
     {

@@ -1,9 +1,9 @@
-﻿using MicroservicesRabbitMQ.Banking.Data.Context;
-using MicroservicesRabbitMQ.Banking.Domain.Interfaces;
+﻿using MicroservicesRabbitMQ.Banking.Domain.Interfaces;
 using MicroservicesRabbitMQ.Banking.Domain.Models;
+using MicroservicesRabbitMQ.Banking.Infra.Data.Context;
 using System.Collections.Generic;
 
-namespace MicroservicesRabbitMQ.Banking.Data.Repositories
+namespace MicroservicesRabbitMQ.Banking.Infra.Data.Repositories
 {
     public class AccountRepository : IAccountRepository
     {

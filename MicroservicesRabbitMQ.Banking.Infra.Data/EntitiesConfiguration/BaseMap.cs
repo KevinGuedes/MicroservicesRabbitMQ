@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MicroservicesRabbitMQ.Banking.Data.EntitiesConfiguration
+namespace MicroservicesRabbitMQ.Banking.Infra.Data.EntitiesConfiguration
 {
     public class BaseMap<T> : IEntityTypeConfiguration<T> where T : Base
     {
