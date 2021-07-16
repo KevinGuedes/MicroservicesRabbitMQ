@@ -2,10 +2,6 @@
 using MicroservicesRabbitMQ.Banking.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MicroservicesRabbitMQ.Banking.Api.Controllers
 {
