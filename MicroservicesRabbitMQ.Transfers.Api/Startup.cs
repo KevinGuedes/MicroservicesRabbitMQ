@@ -1,7 +1,7 @@
 using MediatR;
-using MicroservicesRabbitMQ.Banking.Infra.Data.Context;
-using MicroservicesRabbitMQ.Banking.Infra.IoC;
 using MicroservicesRabbitMQ.Infra.IoC;
+using MicroservicesRabbitMQ.Transfers.Infra.Data.Context;
+using MicroservicesRabbitMQ.Transfers.Infra.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace MicroservicesRabbitMQ.Banking.Api
+namespace MicroservicesRabbitMQ.Transfers.Api
 {
     public class Startup
     {
@@ -25,10 +25,10 @@ namespace MicroservicesRabbitMQ.Banking.Api
         {
             AddConfigurations(services);
 
-            services.AddDbContext<BankingDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection"));
-                }
+            services.AddDbContext<TransfersDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("TransfersDbConnection"));
+            }
             );
 
             services.AddControllers();
@@ -37,7 +37,7 @@ namespace MicroservicesRabbitMQ.Banking.Api
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicroservicesRabbitMQ.Banking.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicroservicesRabbitMQ.Transfers.Api", Version = "v1" });
             });
         }
 
@@ -53,7 +53,7 @@ namespace MicroservicesRabbitMQ.Banking.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Banking Microservice v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transfers Microservice v1"));
             }
 
             app.UseHttpsRedirection();
