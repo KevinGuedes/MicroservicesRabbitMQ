@@ -19,5 +19,11 @@ namespace MicroservicesRabbitMQ.Transfers.Infra.Data.Repositories
         {
             return _transfersDbContext.Transfers;
         }
+
+        public void SaveTransfer(Transfer transfer)
+        {
+            _transfersDbContext.Add(transfer);
+            _transfersDbContext.SaveChanges();
+        }
     }
 }

@@ -1,9 +1,8 @@
-﻿using MicroservicesRabbitMQ.Domain.Core.Entities;
-using System;
+﻿using MicroservicesRabbitMQ.Domain.Core.Events;
 
-namespace MicroservicesRabbitMQ.Transfers.Domain.Models
+namespace MicroservicesRabbitMQ.Transfers.Domain.Events
 {
-    public class Transfer : Base
+    public sealed class TransferCreatedEvent : Event
     {
         public int FromAccount { get; private set; }
 
@@ -11,12 +10,11 @@ namespace MicroservicesRabbitMQ.Transfers.Domain.Models
 
         public decimal Value { get; private set; }
 
-        public Transfer(int fromAccount, int toAccount, decimal value)
+        public TransferCreatedEvent(int fromAccount, int toAccount, decimal value)
         {
             FromAccount = fromAccount;
             ToAccount = toAccount;
             Value = value;
-            CreationDate = DateTime.Now;
         }
     }
 }

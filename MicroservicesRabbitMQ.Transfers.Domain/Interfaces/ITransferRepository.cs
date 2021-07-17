@@ -6,5 +6,7 @@ namespace MicroservicesRabbitMQ.Transfers.Domain.Interfaces
     public interface ITransferRepository
     {
         IEnumerable<Transfer> GetTransfers();
+
+        void SaveTransfer(Transfer transfer);
     }
 }

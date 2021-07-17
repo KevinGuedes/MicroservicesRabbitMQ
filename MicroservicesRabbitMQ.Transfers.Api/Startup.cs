@@ -1,5 +1,8 @@
 using MediatR;
+using MicroservicesRabbitMQ.Domain.Core.Bus;
 using MicroservicesRabbitMQ.Infra.IoC;
+using MicroservicesRabbitMQ.Transfers.Domain.EventHandlers;
+using MicroservicesRabbitMQ.Transfers.Domain.Events;
 using MicroservicesRabbitMQ.Transfers.Infra.Data.Context;
 using MicroservicesRabbitMQ.Transfers.Infra.IoC;
 using Microsoft.AspNetCore.Builder;
@@ -33,7 +36,7 @@ namespace MicroservicesRabbitMQ.Transfers.Api
 
             services.AddControllers();
 
-            //services.AddMediatR(typeof(Startup));
+            services.AddMediatR(typeof(Startup));
 
             services.AddSwaggerGen(c =>
             {
@@ -66,6 +69,14 @@ namespace MicroservicesRabbitMQ.Transfers.Api
             {
                 endpoints.MapControllers();
             });
+
+            ConfigureEventBus(app);
+        }
+
+        private static void ConfigureEventBus(IApplicationBuilder app)
+        {
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+            eventBus.Subscribe<TransferCreatedEvent, TransferEventHandler>();
         }
     }
 }
