@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MicroservicesRabbitMQ.Transfers.Domain\MicroservicesRabbitMQ.Transfers.Domain.csproj" />
   </ItemGroup>
 
