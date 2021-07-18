@@ -19,6 +19,7 @@ namespace MicroservicesRabbitMQ.Transfers.Infra.IoC
             //services.AddMediatR(AppDomain.CurrentDomain.Load("MicroservicesRabbitMQ.Transfers.Api"));
 
             services.AddTransient<IEventHandler<TransferCreatedEvent>, TransferEventHandler>();
+            services.AddTransient<TransferEventHandler>();
 
             services.AddTransient<ITransferService, TransferService>();
 

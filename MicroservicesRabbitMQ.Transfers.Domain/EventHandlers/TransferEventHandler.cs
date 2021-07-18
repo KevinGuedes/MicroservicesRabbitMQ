@@ -2,6 +2,7 @@
 using MicroservicesRabbitMQ.Transfers.Domain.Events;
 using MicroservicesRabbitMQ.Transfers.Domain.Interfaces;
 using MicroservicesRabbitMQ.Transfers.Domain.Models;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +13,22 @@ namespace MicroservicesRabbitMQ.Transfers.Domain.EventHandlers
 {
     public class TransferEventHandler : IEventHandler<TransferCreatedEvent>
     {
-        public TransferEventHandler()
-        {
-        }
+        private readonly ITransferRepository _transferRepository;
+        private readonly ILogger<TransferEventHandler> _logger;
 
-        //public TransferEventHandler(ITransferRepository transferRepository)
-        //{
-        //    _transferRepository = transferRepository;
-        //}
+        public TransferEventHandler(ITransferRepository transferRepository, ILogger<TransferEventHandler> logger)
+        {
+            _transferRepository = transferRepository;
+            _logger = logger;
+        }
 
         public Task Handle(TransferCreatedEvent @event)
         {
-            //var transfer = new Transfer(@event.FromAccount, @event.ToAccount, @event.Value);
+            _logger.LogInformation($"Transfer Created Event Handler accessed. Value transfered: {@event.Value}");
 
-            //_transferRepository.SaveTransfer(transfer);
+            var transfer = new Transfer(@event.FromAccount, @event.ToAccount, @event.Value);
+
+            _transferRepository.SaveTransfer(transfer);
 
             return Task.CompletedTask;
         }
